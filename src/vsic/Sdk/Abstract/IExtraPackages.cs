@@ -1,0 +1,2 @@
+﻿namespace VisualStudioInstallerCleaner.Sdk.Abstract;
+

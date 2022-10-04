@@ -1,0 +1,36 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <LangVersion>10.0</LangVersion>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <Configurations>Debug;Release</Configurations>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <InternalName Condition="'$(StartupDir)' == ''">$(MSBuildProjectName)</InternalName>
+    <StartupDir Condition="'$(StartupDir)' == ''">$(MSBuildThisFileDirectory)/</StartupDir>
+    <BuildDir Condition="'$(BuildDir)' == ''">$(StartupDir).build/</BuildDir>
+
+    <BaseIntermediateOutputPath>$(BuildDir)obj/$(InternalName)/</BaseIntermediateOutputPath>
+    <OutputPath>$(BuildDir)bin/$(Configuration)/</OutputPath>
+  </PropertyGroup>
+</Project>
